@@ -170,6 +170,6 @@ def get_route(hostname):
                 
                 mySocket.close()
 
-if __name__ == '__main__':
+#if __name__ == '__main__':
     #test case
-   get_route("google.com")
+   #get_route("google.com")
