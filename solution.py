@@ -131,7 +131,8 @@ def get_route(hostname):
                     #Fill in start
                     #You should add your responses to your lists here
                     #calcing time difference and convert to seconds
-                    tracelist1.insert(-1, str(int((timeReceived - timeSent)*1000)))
+                    tracelist1.insert(-1, ttl)
+                    tracelist1.insert(-1, str(int((timeReceived - t)*1000))+" ms")
                     tracelist1.insert(-1, addr[0])
                     tracelist2.append(tracelist1)
                     #Fill in end
@@ -140,7 +141,8 @@ def get_route(hostname):
                     timeSent = struct.unpack("d", recvPacket[28:28 + bytes])[0]
                     #Fill in start
                     #You should add your responses to your lists here 
-                    tracelist1.insert(-1, str(int((timeReceived-timeSent)*1000)))
+                    tracelist1.insert(-1, ttl)
+                    tracelist1.insert(-1, str(int((timeReceived-t)*1000))+" ms")
                     tracelist1.insert(-1,addr[0])
                     tracelist2.append(tracelist1)
                     #Fill in end
@@ -149,7 +151,8 @@ def get_route(hostname):
                     timeSent = struct.unpack("d", recvPacket[28:28 + bytes])[0]
                     #Fill in start
                     #You should add your responses to your lists here and return your list if your destination IP is met
-                    tracelist1.insert(-1, str(int((timeReceived-timeSent)*1000)))
+                    tracelist1.insert(-1, ttl)
+                    tracelist1.insert(-1, str(int((timeReceived-t)*1000))+" ms")
                     tracelist1.insert(-1,addr[0])
                     tracelist2.append(tracelist1)
                     return tracelist2
@@ -168,4 +171,5 @@ def get_route(hostname):
                 mySocket.close()
 
 if __name__ == '__main__':
-   print(get_route("google.com"))
+    #test case
+   get_route("google.com")
